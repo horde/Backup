@@ -10,7 +10,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-05-17</date>
+ <date>2017-10-17</date>
  <version>
   <release>1.0.0alpha1</release>
   <api>1.0.0alpha1</api>
@@ -25,13 +25,6 @@
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <dir name="doc">
-    <dir name="Horde">
-     <dir name="Backup">
-      <file name="LICENSE" role="doc" />
-     </dir> <!-- /doc/Horde/Backup -->
-    </dir> <!-- /doc/Horde -->
-   </dir> <!-- /doc -->
    <dir name="lib">
     <dir name="Horde">
      <dir name="Backup">
@@ -71,6 +64,7 @@
      </dir> <!-- /test/Horde/Backup -->
     </dir> <!-- /test/Horde -->
    </dir> <!-- /test -->
+   <file name="LICENSE" role="doc" />
   </dir> <!-- / -->
  </contents>
  <dependencies>
@@ -124,7 +118,6 @@
  </dependencies>
  <phprelease>
   <filelist>
-   <install as="LICENSE" name="doc/Horde/Backup/LICENSE" />
    <install as="Horde/Backup.php" name="lib/Horde/Backup.php" />
    <install as="Horde/Backup/Collection.php" name="lib/Horde/Backup/Collection.php" />
    <install as="Horde/Backup/Exception.php" name="lib/Horde/Backup/Exception.php" />
@@ -136,6 +129,7 @@
    <install as="Horde/Backup/Reader/CompressIterator.php" name="lib/Horde/Backup/Reader/CompressIterator.php" />
    <install as="Horde/Backup/Reader/CompressIterator/Tar.php" name="lib/Horde/Backup/Reader/CompressIterator/Tar.php" />
    <install as="Horde/Backup/Reader/CompressIterator/Zip.php" name="lib/Horde/Backup/Reader/CompressIterator/Zip.php" />
+   <install as="LICENSE" name="LICENSE" />
    <install as="Horde/Backup/AllTests.php" name="test/Horde/Backup/AllTests.php" />
    <install as="Horde/Backup/ApplicationTest.php" name="test/Horde/Backup/ApplicationTest.php" />
    <install as="Horde/Backup/BackupRestoreTest.php" name="test/Horde/Backup/BackupRestoreTest.php" />
@@ -156,7 +150,7 @@
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2017-05-17</date>
+   <date>2017-10-17</date>
    <license uri="http://www.horde.org/licenses/bsd">BSD</license>
    <notes>
 * Initial release.
