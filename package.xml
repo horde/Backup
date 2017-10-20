@@ -10,7 +10,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-17</date>
+ <date>2017-10-20</date>
  <version>
   <release>1.0.0alpha1</release>
   <api>1.0.0alpha1</api>
@@ -59,7 +59,6 @@
       <file name="ApplicationTest.php" role="test" />
       <file name="BackupRestoreTest.php" role="test" />
       <file name="bootstrap.php" role="test" />
-      <file name="phpunit.xml" role="test" />
       <file name="UsersTest.php" role="test" />
      </dir> <!-- /test/Horde/Backup -->
     </dir> <!-- /test/Horde -->
@@ -122,23 +121,22 @@
    <install as="Horde/Backup/Collection.php" name="lib/Horde/Backup/Collection.php" />
    <install as="Horde/Backup/Exception.php" name="lib/Horde/Backup/Exception.php" />
    <install as="Horde/Backup/Reader.php" name="lib/Horde/Backup/Reader.php" />
+   <install as="Horde/Backup/Reader/CompressIterator.php" name="lib/Horde/Backup/Reader/CompressIterator.php" />
+   <install as="Horde/Backup/Reader/CompressIterator/Tar.php" name="lib/Horde/Backup/Reader/CompressIterator/Tar.php" />
+   <install as="Horde/Backup/Reader/CompressIterator/Zip.php" name="lib/Horde/Backup/Reader/CompressIterator/Zip.php" />
    <install as="Horde/Backup/Translation.php" name="lib/Horde/Backup/Translation.php" />
    <install as="Horde/Backup/User.php" name="lib/Horde/Backup/User.php" />
    <install as="Horde/Backup/Users.php" name="lib/Horde/Backup/Users.php" />
    <install as="Horde/Backup/Writer.php" name="lib/Horde/Backup/Writer.php" />
-   <install as="Horde/Backup/Reader/CompressIterator.php" name="lib/Horde/Backup/Reader/CompressIterator.php" />
-   <install as="Horde/Backup/Reader/CompressIterator/Tar.php" name="lib/Horde/Backup/Reader/CompressIterator/Tar.php" />
-   <install as="Horde/Backup/Reader/CompressIterator/Zip.php" name="lib/Horde/Backup/Reader/CompressIterator/Zip.php" />
    <install as="LICENSE" name="LICENSE" />
    <install as="Horde/Backup/AllTests.php" name="test/Horde/Backup/AllTests.php" />
    <install as="Horde/Backup/ApplicationTest.php" name="test/Horde/Backup/ApplicationTest.php" />
    <install as="Horde/Backup/BackupRestoreTest.php" name="test/Horde/Backup/BackupRestoreTest.php" />
    <install as="Horde/Backup/bootstrap.php" name="test/Horde/Backup/bootstrap.php" />
-   <install as="Horde/Backup/phpunit.xml" name="test/Horde/Backup/phpunit.xml" />
-   <install as="Horde/Backup/UsersTest.php" name="test/Horde/Backup/UsersTest.php" />
    <install as="Horde/Backup/Stub/Application.php" name="test/Horde/Backup/Stub/Application.php" />
    <install as="Horde/Backup/Stub/Application2.php" name="test/Horde/Backup/Stub/Application2.php" />
-   </filelist>
+   <install as="Horde/Backup/UsersTest.php" name="test/Horde/Backup/UsersTest.php" />
+  </filelist>
  </phprelease>
  <changelog>
   <release>
@@ -150,7 +148,7 @@
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2017-10-17</date>
+   <date>2017-10-20</date>
    <license uri="http://www.horde.org/licenses/bsd">BSD</license>
    <notes>
 * Initial release.
