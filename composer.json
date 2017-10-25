@@ -12,7 +12,7 @@
         }
     ],
     "version": "1.0.0alpha1",
-    "time": "2017-05-05",
+    "time": "2017-10-20",
     "repositories": [
         {
             "type": "pear",
@@ -20,7 +20,14 @@
         }
     ],
     "require": {
-        "php": "^5.4 || ^7"
+        "php": "^5.4 || ^7",
+        "pear-pear.horde.org/Horde_Compress": "^2.2",
+        "pear-pear.horde.org/Horde_Exception": "^2",
+        "pear-pear.horde.org/Horde_Pack": "^1",
+        "pear-pear.horde.org/Horde_Translation": "^2"
+    },
+    "suggest": {
+        "pear-pear.horde.org/Horde_Test": "^2"
     },
     "replace": {
         "pear-pear.horde.org/Horde_Backup": "1.*",
