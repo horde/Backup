@@ -2,7 +2,33 @@
 id: Backup
 name: Backup
 full: Backup and restore library
-description: >
-  Library that drives the backup and restore features of Horde applications.
+description: Library that drives the backup and restore features of Horde applications.
 list: dev
 type: library
+authors:
+  -
+    name: Jan Schneider
+    user: jan
+    email: jan@horde.org
+    active: true
+    role: lead
+version:
+  release: 1.0.0RC2
+  api: 1.0.0RC1
+state:
+  release: beta
+  api: beta
+license:
+  identifier: BSD
+  uri: http://www.horde.org/licenses/bsd
+dependencies:
+  required:
+    php: ^5.4 || ^7
+    pear:
+      pear.horde.org/Horde_Compress: ^2.2
+      pear.horde.org/Horde_Exception: ^2
+      pear.horde.org/Horde_Pack: ^1
+      pear.horde.org/Horde_Translation: ^2
+  optional:
+    pear:
+      pear.horde.org/Horde_Test: ^2
