@@ -1,0 +1,12 @@
+---
+1.0.0alpha1:
+  api: 1.0.0alpha1
+  state:
+    release: alpha
+    api: alpha
+  date: 2017-10-20
+  license:
+    identifier: BSD
+    uri: http://www.horde.org/licenses/bsd
+  notes: |
+    Initial release.
