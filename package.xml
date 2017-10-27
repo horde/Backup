@@ -10,7 +10,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-20</date>
+ <date>2017-10-27</date>
  <version>
   <release>1.0.0alpha1</release>
   <api>1.0.0alpha1</api>
@@ -25,6 +25,13 @@
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
+   <dir name="doc">
+    <dir name="Horde">
+     <dir name="Backup">
+      <file name="CHANGES" role="doc" />
+     </dir> <!-- /doc/Horde/Backup -->
+    </dir> <!-- /doc/Horde -->
+   </dir> <!-- /doc -->
    <dir name="lib">
     <dir name="Horde">
      <dir name="Backup">
@@ -117,6 +124,7 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="CHANGES" name="doc/Horde/Backup/CHANGES" />
    <install as="Horde/Backup.php" name="lib/Horde/Backup.php" />
    <install as="Horde/Backup/Collection.php" name="lib/Horde/Backup/Collection.php" />
    <install as="Horde/Backup/Exception.php" name="lib/Horde/Backup/Exception.php" />
@@ -148,7 +156,7 @@
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2017-10-20</date>
+   <date>2017-10-27</date>
    <license uri="http://www.horde.org/licenses/bsd">BSD</license>
    <notes>
 * Initial release.
