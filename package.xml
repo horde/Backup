@@ -67,7 +67,6 @@
       <file name="ApplicationTest.php" role="test" />
       <file name="BackupRestoreTest.php" role="test" />
       <file name="bootstrap.php" role="test" />
-      <file name="phpunit.xml" role="test" />
       <file name="UsersTest.php" role="test" />
      </dir> <!-- /test/Horde/Backup -->
     </dir> <!-- /test/Horde -->
@@ -142,7 +141,6 @@
    <install as="Horde/Backup/ApplicationTest.php" name="test/Horde/Backup/ApplicationTest.php" />
    <install as="Horde/Backup/BackupRestoreTest.php" name="test/Horde/Backup/BackupRestoreTest.php" />
    <install as="Horde/Backup/bootstrap.php" name="test/Horde/Backup/bootstrap.php" />
-   <install as="Horde/Backup/phpunit.xml" name="test/Horde/Backup/phpunit.xml" />
    <install as="Horde/Backup/UsersTest.php" name="test/Horde/Backup/UsersTest.php" />
    <install as="Horde/Backup/Stub/Application.php" name="test/Horde/Backup/Stub/Application.php" />
    <install as="Horde/Backup/Stub/Application2.php" name="test/Horde/Backup/Stub/Application2.php" />
