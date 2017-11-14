@@ -10,7 +10,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-30</date>
+ <date>2017-11-14</date>
  <version>
   <release>1.0.0RC2</release>
   <api>1.0.0RC1</api>
@@ -171,7 +171,7 @@
    <stability>
     <release>beta</release>
     <api>beta</api></stability>
-   <date>2017-10-30</date>
+   <date>2017-11-14</date>
    <license uri="http://www.horde.org/licenses/bsd">BSD</license>
    <notes>
 * 
