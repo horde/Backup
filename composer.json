@@ -21,14 +21,14 @@
     ],
     "require": {
         "horde/horde-installer-plugin": "*",
-        "php": "^5.4 || ^7",
-        "horde/compress": "^2.2",
-        "horde/exception": "^2",
-        "horde/pack": "^1",
-        "horde/translation": "^2"
+        "php": "^7",
+        "horde/compress": "^3",
+        "horde/exception": "^3",
+        "horde/pack": "^2",
+        "horde/translation": "^3"
     },
     "suggest": {
-        "horde/test": "^2"
+        "horde/test": "^3"
     },
     "autoload": {
         "psr-0": {
