@@ -3,17 +3,17 @@
  <name>Horde_Backup</name>
  <channel>pear.horde.org</channel>
  <summary>Backup and restore library</summary>
- <description>Library that drives the backup and restore features of Horde applications.</description>
+ <description>A library that drives the backup and restore features of Horde applications.</description>
  <lead>
   <name>Jan Schneider</name>
   <user>jan</user>
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-11-11</date>
+ <date>2021-02-23</date>
  <version>
-  <release>1.0.0alpha1</release>
-  <api>1.0.0alpha1</api>
+  <release>2.0.0alpha1</release>
+  <api>2.0.0alpha1</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -149,14 +149,14 @@
  <changelog>
   <release>
    <version>
-    <release>1.0.0alpha1</release>
-    <api>1.0.0alpha1</api>
+    <release>2.0.0alpha1</release>
+    <api>2.0.0alpha1</api>
    </version>
    <stability>
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2017-11-11</date>
+   <date>2021-02-23</date>
    <license uri="http://www.horde.org/licenses/bsd">BSD</license>
    <notes>
 * Initial release.
