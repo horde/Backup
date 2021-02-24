@@ -10,7 +10,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2021-02-23</date>
+ <date>2021-02-24</date>
  <version>
   <release>2.0.0alpha2</release>
   <api>2.0.0alpha1</api>
@@ -21,7 +21,7 @@
  </stability>
  <license uri="http://www.horde.org/licenses/bsd">BSD</license>
  <notes>
-* 
+* |+
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -110,7 +110,6 @@
   </filelist>
  </phprelease>
  <changelog>
- 
   <release>
    <version>
     <release>2.0.0alpha1</release>
@@ -138,7 +137,7 @@
    <date>2021-02-23</date>
    <license uri="http://www.horde.org/licenses/bsd">BSD</license>
    <notes>
-* 
+* |+
    </notes>
   </release>
  </changelog>
