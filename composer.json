@@ -1,4 +1,5 @@
 {
+    "minimum-stability": "dev",
     "name": "horde/backup",
     "description": "Backup and restore library",
     "type": "library",
@@ -20,13 +21,13 @@
     ],
     "require": {
         "php": "^7",
-        "horde/compress": "^3",
-        "horde/exception": "^3",
-        "horde/pack": "^2",
-        "horde/translation": "^3"
+        "horde/compress": "^3 || dev-FRAMEWORK_6_0",
+        "horde/exception": "^3 || dev-FRAMEWORK_6_0",
+        "horde/pack": "^2 || dev-FRAMEWORK_6_0",
+        "horde/translation": "^3 || dev-FRAMEWORK_6_0"
     },
     "suggest": {
-        "horde/test": "^3"
+        "horde/test": "^3 || dev-FRAMEWORK_6_0"
     },
     "autoload": {
         "psr-0": {
