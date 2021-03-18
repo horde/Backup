@@ -40,7 +40,7 @@ class BackupRestoreTest extends TestCase
         mkdir($this->_temp);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         if (!is_dir($this->_temp) || !$this->_clean) {
             return;
@@ -195,7 +195,7 @@ class BackupRestoreTest extends TestCase
             );
         }
         $data = $backup->restore();
-        $this->assertInternalType('array', $data);
+        $this->assertIsArray($data);
         $this->assertCount(count($applications), $data);
         foreach (array_keys($applications) as $application) {
             $this->assertArrayHasKey($application, $data);

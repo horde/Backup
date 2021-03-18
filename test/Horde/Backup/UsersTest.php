@@ -49,7 +49,7 @@ class UsersTest extends TestCase
         $count = 0;
         foreach ($users as $name => $user) {
             $count++;
-            $this->assertInternalType('string', $name);
+            $this->assertIsString('string', $name);
             $this->assertInstanceOf('\Horde\Backup\User', $user);
         }
         $this->assertEquals(2, $count);

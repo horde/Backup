@@ -38,7 +38,7 @@ class ApplicationTest extends TestCase
         $user = $users->current();
         $this->assertInstanceOf('\Horde\Backup\User', $user);
         $this->assertEquals('john', $user->user);
-        $this->assertInternalType('array', $user->collections);
+        $this->assertIsArray($user->collections);
         $this->assertCount(2, $user->collections);
         $this->assertInstanceOf('\Horde\Backup\Collection', $user->collections[0]);
         $this->assertInstanceOf('Iterator', $user->collections[0]);
@@ -61,7 +61,7 @@ class ApplicationTest extends TestCase
         $user = $users->current();
         $this->assertInstanceOf('\Horde\Backup\User', $user);
         $this->assertEquals('jane', $user->user);
-        $this->assertInternalType('array', $user->collections);
+        $this->assertIsArray($user->collections);
         $this->assertCount(1, $user->collections);
         $this->assertInstanceOf('\Horde\Backup\Collection', $user->collections[0]);
         $this->assertInstanceOf('Iterator', $user->collections[0]);
