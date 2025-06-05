@@ -1,5 +1,17 @@
 ---
-2.0.0alpha4:
+2.0.0-alpha4:
+  api: 2.0.0-alpha1
+  state:
+    release: alpha
+    api: alpha
+  date: 2025-06-05
+  license:
+    identifier: BSD-2-Clause
+    uri: http://www.horde.org/licenses/bsd
+  notes: |
+    chore: Clarify BSD license as BSD-2-Clause
+    style: Apply php-cs-fixer php8.3+ rules
+2.0.0-alpha3:
   api: 2.0.0alpha1
   state:
     release: alpha
@@ -8,19 +20,10 @@
   license:
     identifier: BSD
     uri: http://www.horde.org/licenses/bsd
-  notes: |+
-    
-2.0.0alpha3:
-  api: 2.0.0alpha1
-  state:
-    release: alpha
-    api: alpha
-  date: 2021-03-13
-  license:
-    identifier: BSD
-    uri: http://www.horde.org/licenses/bsd
-  notes: |+
-2.0.0alpha2:
+  notes: |-
+    Original version string was 2.0.0alpha3
+    |+
+2.0.0-alpha2:
   api: 2.0.0alpha1
   state:
     release: alpha
@@ -29,8 +32,10 @@
   license:
     identifier: BSD
     uri: http://www.horde.org/licenses/bsd
-  notes: |+
-2.0.0alpha1:
+  notes: |-
+    Original version string was 2.0.0alpha2
+    |+
+2.0.0-alpha1:
   api: 2.0.0alpha1
   state:
     release: alpha
@@ -40,4 +45,5 @@
     identifier: BSD
     uri: http://www.horde.org/licenses/bsd
   notes: |
+    Original version string was 2.0.0alpha1
     Initial release.
