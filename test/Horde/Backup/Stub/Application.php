@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -31,47 +32,47 @@ use Horde\Backup\Users;
  */
 class Application
 {
-    public $userData = array(
-        'john' => array(
-            'calendars' => array(
-                array(
+    public $userData = [
+        'john' => [
+            'calendars' => [
+                [
                     'id' => 'id1',
                     'name' => 'Calendar 1',
-                    'desc' => 'The first calendar.'
-                ),
-                array(
+                    'desc' => 'The first calendar.',
+                ],
+                [
                     'id' => 'id2',
                     'name' => 'Calendar 2',
-                    'desc' => 'The second calendar.'
-                ),
-            ),
-            'events' => array(
-                array(
+                    'desc' => 'The second calendar.',
+                ],
+            ],
+            'events' => [
+                [
                     'id' => 'event1',
                     'name' => 'John\'s Event',
-                    'calendar' => 'id1'
-                )
-            )
-        ),
-        'jane' => array(
-            'events' => array(
-                array(
+                    'calendar' => 'id1',
+                ],
+            ],
+        ],
+        'jane' => [
+            'events' => [
+                [
                     'id' => 'event2',
                     'name' => 'Jane\'s Event',
-                    'calendar' => 'id1'
-                )
-            )
-        )
-    );
+                    'calendar' => 'id1',
+                ],
+            ],
+        ],
+    ];
 
-    public function backup(array $users = array())
+    public function backup(array $users = [])
     {
         if (!$users) {
             $users = array_keys($this->userData);
         }
         return new Users(
             new ArrayIterator($users),
-            array($this, 'getUserBackup')
+            [$this, 'getUserBackup']
         );
     }
 
@@ -81,7 +82,9 @@ class Application
         if (isset($this->userData[$user])) {
             foreach ($this->userData[$user] as $type => $data) {
                 $backup->collections[] = new Collection(
-                    new ArrayIterator($data), $user, $type
+                    new ArrayIterator($data),
+                    $user,
+                    $type
                 );
             }
         }

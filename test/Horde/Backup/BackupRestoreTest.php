@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -28,6 +29,7 @@ use Horde\Backup\Stub;
  * @license    http://www.horde.org/licenses/bsd BSD
  * @package    Backup
  * @subpackage UnitTests
+ * @coversNothing
  */
 class BackupRestoreTest extends TestCase
 {
@@ -54,12 +56,12 @@ class BackupRestoreTest extends TestCase
     public function testBackupMultipleUsers()
     {
         return $this->_backupTest(
-            array(
+            [
                 'calendar' => new Stub\Application(),
-                'addressbook' => new Stub\Application2()
-            ),
+                'addressbook' => new Stub\Application2(),
+            ],
             null,
-            array('john', 'jane')
+            ['john', 'jane']
         );
     }
 
@@ -70,23 +72,23 @@ class BackupRestoreTest extends TestCase
     {
         $this->_restoreTest(
             $temp,
-            array(
+            [
                 'calendar' => new Stub\Application(),
-                'addressbook' => new Stub\Application2()
-            ),
-            array('jane', 'john')
+                'addressbook' => new Stub\Application2(),
+            ],
+            ['jane', 'john']
         );
     }
 
     public function testBackupSingleUser()
     {
         return $this->_backupTest(
-            array(
+            [
                 'calendar' => new Stub\Application(),
-                'addressbook' => new Stub\Application2()
-            ),
-            array('jane'),
-            array('jane')
+                'addressbook' => new Stub\Application2(),
+            ],
+            ['jane'],
+            ['jane']
         );
     }
 
@@ -97,22 +99,22 @@ class BackupRestoreTest extends TestCase
     {
         $this->_restoreTest(
             $temp,
-            array(
+            [
                 'calendar' => new Stub\Application(),
-                'addressbook' => new Stub\Application2()
-            ),
-            array('jane')
+                'addressbook' => new Stub\Application2(),
+            ],
+            ['jane']
         );
     }
 
     public function testBackupSingleApplication()
     {
         return $this->_backupTest(
-            array(
+            [
                 'calendar' => new Stub\Application(),
-            ),
+            ],
             null,
-            array('john', 'jane')
+            ['john', 'jane']
         );
     }
 
@@ -123,22 +125,22 @@ class BackupRestoreTest extends TestCase
     {
         $this->_restoreTest(
             $temp,
-            array(
+            [
                 'calendar' => new Stub\Application(),
-            ),
-            array('jane', 'john')
+            ],
+            ['jane', 'john']
         );
     }
 
     public function testBackupToTar()
     {
         return $this->_backupTest(
-            array(
+            [
                 'calendar' => new Stub\Application(),
-                'addressbook' => new Stub\Application2()
-            ),
+                'addressbook' => new Stub\Application2(),
+            ],
             null,
-            array('john', 'jane'),
+            ['john', 'jane'],
             Backup::FORMAT_TAR
         );
     }
@@ -150,19 +152,21 @@ class BackupRestoreTest extends TestCase
     {
         $this->_restoreTest(
             $temp,
-            array(
+            [
                 'calendar' => new Stub\Application(),
-                'addressbook' => new Stub\Application2()
-            ),
-            array('jane', 'john'),
+                'addressbook' => new Stub\Application2(),
+            ],
+            ['jane', 'john'],
             Backup::FORMAT_TAR
         );
     }
 
     protected function _backupTest(
-        $applications, $backupUsers, $users, $format = Backup::FORMAT_ZIP
-    )
-    {
+        $applications,
+        $backupUsers,
+        $users,
+        $format = Backup::FORMAT_ZIP
+    ) {
         $this->_createBackup();
         $backup = new Writer($this->_temp);
         foreach ($applications as $application => $instance) {
@@ -180,9 +184,11 @@ class BackupRestoreTest extends TestCase
     }
 
     protected function _restoreTest(
-        $temp, $applications, $users, $format = Backup::FORMAT_ZIP
-    )
-    {
+        $temp,
+        $applications,
+        $users,
+        $format = Backup::FORMAT_ZIP
+    ) {
         $this->_clean = true;
         $this->_temp = $temp;
         $backup = new Reader($this->_temp);
@@ -200,7 +206,7 @@ class BackupRestoreTest extends TestCase
         foreach (array_keys($applications) as $application) {
             $this->assertArrayHasKey($application, $data);
         }
-        $matrix = array();
+        $matrix = [];
         foreach ($data as $application => $collections) {
             foreach ($collections as $collection) {
                 $user = $collection->getUser();
@@ -212,23 +218,23 @@ class BackupRestoreTest extends TestCase
             }
         }
         ksort($matrix);
-        $expected = array(
-            'jane' => array(
-                'calendar' => array(
-                    'events' => true
-                ),
-                'addressbook' => array(
+        $expected = [
+            'jane' => [
+                'calendar' => [
+                    'events' => true,
+                ],
+                'addressbook' => [
                     'addressbooks' => true,
                     'contacts' => true,
-                ),
-            ),
-            'john' => array(
-                'calendar' => array(
+                ],
+            ],
+            'john' => [
+                'calendar' => [
                     'events' => true,
                     'calendars' => true,
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
         if (!isset($applications['addressbook'])) {
             unset($expected['jane']['addressbook']);
         }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -58,8 +59,7 @@ abstract class CompressIterator extends IteratorIterator
 
         $iterator = new CallbackFilterIterator(
             new ArrayIterator($info),
-            function ($current, $key, $iterator) use ($application, $type)
-            {
+            function ($current, $key, $iterator) use ($application, $type) {
                 $path = explode('/', $current['name']);
                 return $application == $path[0] && $type == $path[1];
             }

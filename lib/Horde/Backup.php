@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -27,10 +28,10 @@ class Backup
     /**
      * Create ZIP archives.
      */
-    const FORMAT_ZIP = 1;
+    public const FORMAT_ZIP = 1;
 
     /**
      * Create TAR archives.
      */
-    const FORMAT_TAR = 2;
+    public const FORMAT_TAR = 2;
 }

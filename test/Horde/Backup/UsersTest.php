@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -28,16 +29,18 @@ use Horde\Backup\Users;
  * @license    http://www.horde.org/licenses/bsd BSD
  * @package    Backup
  * @subpackage UnitTests
+ * @coversNothing
  */
 class UsersTest extends TestCase
 {
     public function testIterator()
     {
-        $callback = function($user) {
+        $callback = function ($user) {
             return new User($user);
         };
         $users = new Users(
-            new ArrayIterator(array('john', 'jane')), $callback
+            new ArrayIterator(['john', 'jane']),
+            $callback
         );
         $this->assertInstanceOf('Iterator', $users);
         $this->assertTrue($users->valid());

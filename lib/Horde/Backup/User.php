@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -36,7 +37,7 @@ class User
      *
      * @var \Horde\Backup\Collection[]
      */
-    public $collections = array();
+    public $collections = [];
 
     /**
      * Constructor.

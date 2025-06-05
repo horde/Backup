@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -28,26 +29,26 @@ use Horde\Backup\Stub\Application;
  */
 class Application2 extends Application
 {
-    public $userData = array(
-        'jane' => array(
-            'addressbooks' => array(
-                array(
+    public $userData = [
+        'jane' => [
+            'addressbooks' => [
+                [
                     'id' => 'id1',
                     'name' => 'Personal Address Book',
-                )
-            ),
-            'contacts' => array(
-                array(
+                ],
+            ],
+            'contacts' => [
+                [
                     'id' => 'contact1',
                     'name' => 'Contact Name',
-                    'address' => array(
+                    'address' => [
                         'street' => 'Mainstreet 1',
-                        'city' => 'Capital City'
-                    ),
+                        'city' => 'Capital City',
+                    ],
                     'phone' => 123456,
-                    'addressbook' => 'id1'
-                )
-            )
-        )
-    );
+                    'addressbook' => 'id1',
+                ],
+            ],
+        ],
+    ];
 }

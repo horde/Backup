@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -77,11 +78,11 @@ class Zip extends CompressIterator
         return $this->_packer->unpack(
             $this->_compress->decompress(
                 $this->_contents,
-                array(
+                [
                     'action' => Compress::ZIP_DATA,
                     'info' => $this->_info,
-                    'key' => parent::key()
-                )
+                    'key' => parent::key(),
+                ]
             )
         );
     }

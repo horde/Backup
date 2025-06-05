@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -93,30 +94,30 @@ class Reader
      * @return \Horde\Backup\Collection[]  All restored object collections.
      */
     public function restore(
-        array $applications = array(), $users = array()
-    )
-    {
+        array $applications = [],
+        $users = []
+    ) {
         if ($users) {
             $backups = new ArrayIterator($this->_getBackupFiles($users));
         } else {
             $backups = $this->listBackups();
         }
 
-        $data = array();
+        $data = [];
         foreach ($backups as $file) {
             switch (substr($file, -4)) {
-            case '.zip':
-                $data = array_merge_recursive(
-                    $data,
-                    $this->_restoreFromZip($file, $applications)
-                );
-                break;
-            case '.tar':
-                $data = array_merge_recursive(
-                    $data,
-                    $this->_restoreFromTar($file, $applications)
-                );
-                break;
+                case '.zip':
+                    $data = array_merge_recursive(
+                        $data,
+                        $this->_restoreFromZip($file, $applications)
+                    );
+                    break;
+                case '.tar':
+                    $data = array_merge_recursive(
+                        $data,
+                        $this->_restoreFromTar($file, $applications)
+                    );
+                    break;
             }
         }
 
@@ -138,7 +139,8 @@ class Reader
         $contents = file_get_contents($file);
         $compress = new Zip();
         $files = $compress->decompress(
-            $contents, array('action' => Zip::ZIP_LIST)
+            $contents,
+            ['action' => Zip::ZIP_LIST]
         );
 
         return $this->_buildCollections(
@@ -146,10 +148,12 @@ class Reader
             $applications,
             $contents,
             $user,
-            function ($application, $resource, $files, $contents)
-            {
+            function ($application, $resource, $files, $contents) {
                 return new ZipIterator(
-                    $application, $resource, $files, $contents
+                    $application,
+                    $resource,
+                    $files,
+                    $contents
                 );
             }
         );
@@ -176,8 +180,7 @@ class Reader
             $applications,
             $contents,
             $user,
-            function ($application, $resource, $files, $contents)
-            {
+            function ($application, $resource, $files, $contents) {
                 return new TarIterator($application, $resource, $files);
             }
         );
@@ -197,10 +200,13 @@ class Reader
      * @return \Horde\Backup\Collection[]  All restored object collections.
      */
     protected function _buildCollections(
-        $files, $applications, $contents, $user, $factory
-    )
-    {
-        $data = array();
+        $files,
+        $applications,
+        $contents,
+        $user,
+        $factory
+    ) {
+        $data = [];
         foreach ($files as $key => $info) {
             $path = explode('/', $info['name']);
             if (!$applications || in_array($path[0], $applications)) {
@@ -208,9 +214,9 @@ class Reader
             }
         }
 
-        $collections = array();
+        $collections = [];
         foreach ($data as $application => $resources) {
-            $collections[$application] = array();
+            $collections[$application] = [];
             foreach (array_keys($resources) as $resource) {
                 $collections[$application][] = new Collection(
                     $factory($application, $resource, $files, $contents),
@@ -232,7 +238,7 @@ class Reader
      */
     protected function _getBackupFiles(array $users)
     {
-        $files = array();
+        $files = [];
         foreach ($users as $user) {
             $file = $this->_dir . '/' . $user;
             if (file_exists($file . '.zip')) {

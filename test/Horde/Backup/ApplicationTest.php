@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -26,13 +27,14 @@ use Horde\Backup\Stub;
  * @license    http://www.horde.org/licenses/bsd BSD
  * @package    Backup
  * @subpackage UnitTests
+ * @coversNothing
  */
 class ApplicationTest extends TestCase
 {
     public function testBackupSingleUser()
     {
         $application = new Stub\Application();
-        $users = $application->backup(array('john'));
+        $users = $application->backup(['john']);
         $this->assertInstanceOf('\Horde\Backup\Users', $users);
         $this->assertCount(1, $users);
         $user = $users->current();

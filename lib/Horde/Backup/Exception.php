@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -22,6 +23,4 @@ namespace Horde\Backup;
  * @license   http://www.horde.org/licenses/bsd BSD
  * @package   Backup
  */
-class Exception extends \Horde_Exception_Wrapped
-{
-}
+class Exception extends \Horde_Exception_Wrapped {}

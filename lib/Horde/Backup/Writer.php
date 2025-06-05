@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2017 Horde LLC (http://www.horde.org/)
  *
@@ -44,7 +45,7 @@ class Writer
      *
      * @var array
      */
-    protected $_backups = array();
+    protected $_backups = [];
 
     /**
      * Constructor.
@@ -62,7 +63,7 @@ class Writer
             throw new Exception(Translation::t("Empty directory name"));
         }
         if (!file_exists($this->_dir)) {
-            mkdir($this->_dir, 0777, true);
+            mkdir($this->_dir, 0o777, true);
         }
         if (!is_dir($this->_dir)) {
             throw new Exception(
@@ -99,7 +100,7 @@ class Writer
      */
     public function save($format = Backup::FORMAT_ZIP)
     {
-        $backups = array();
+        $backups = [];
         foreach ($this->_backups as $application => $users) {
             foreach ($users as $user) {
                 $backups[$user->user][$application] = $user;
@@ -107,32 +108,32 @@ class Writer
         }
 
         switch ($format) {
-        case Backup::FORMAT_ZIP:
-            $compress = new Zip();
-            $extension = '.zip';
-            break;
-        case Backup::FORMAT_TAR:
-            $compress = new Tar();
-            $extension = '.tar';
-            break;
-        default:
-            throw new Exception(Translation::t("Unsupported archive type"));
+            case Backup::FORMAT_ZIP:
+                $compress = new Zip();
+                $extension = '.zip';
+                break;
+            case Backup::FORMAT_TAR:
+                $compress = new Tar();
+                $extension = '.tar';
+                break;
+            default:
+                throw new Exception(Translation::t("Unsupported archive type"));
         }
         $packer = new Json();
 
         $count = 0;
         foreach ($backups as $name => $applications) {
-            $data = array();
+            $data = [];
             foreach ($applications as $application => $backup) {
                 foreach ($backup->collections as $collection) {
                     $dir = $application . '/' . $collection->getType() . '/';
                     foreach ($collection as $id => $object) {
                         $stream = fopen('php://temp', 'w+');
                         fwrite($stream, $packer->pack($object));
-                        $data[] = array(
+                        $data[] = [
                             'name' => $dir . $id,
-                            'data' => $stream
-                        );
+                            'data' => $stream,
+                        ];
                         $count++;
                     }
                 }
@@ -142,7 +143,7 @@ class Writer
             }
             $archive = fopen($this->_dir . '/' . $name . $extension, 'w');
             stream_copy_to_stream(
-                $compress->compress($data, array('stream' => true)),
+                $compress->compress($data, ['stream' => true]),
                 $archive
             );
             fclose($archive);
