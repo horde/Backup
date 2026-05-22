@@ -14,7 +14,7 @@
 
 namespace Horde\Backup\Reader\CompressIterator;
 
-use Horde_Compress_Zip as Compress;
+use Horde\Compress\Driver\Zip as Compress;
 use Horde\Backup\Reader\CompressIterator;
 
 /**
@@ -75,15 +75,15 @@ class Zip extends CompressIterator
      */
     public function current()
     {
-        return $this->_packer->unpack(
-            $this->_compress->decompress(
-                $this->_contents,
-                [
-                    'action' => Compress::ZIP_DATA,
-                    'info' => $this->_info,
-                    'key' => parent::key(),
-                ]
-            )
+        $result = $this->_compress->decompress(
+            $this->_contents,
+            [
+                'action' => Compress::ZIP_DATA,
+                'info' => $this->_info,
+                'key' => parent::key(),
+            ]
         );
+        $data = is_array($result) ? $result['data'] : $result;
+        return $this->_packer->unpack($data);
     }
 }

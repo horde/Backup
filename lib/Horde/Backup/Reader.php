@@ -15,8 +15,8 @@
 namespace Horde\Backup;
 
 use ArrayIterator;
-use Horde_Compress_Tar as Tar;
-use Horde_Compress_Zip as Zip;
+use Horde\Compress\Driver\Tar as Tar;
+use Horde\Compress\Driver\Zip as Zip;
 use Horde_Pack_Driver_Json as Json;
 use Horde\Backup\Exception;
 use Horde\Backup\Reader\CompressIterator\Tar as TarIterator;

@@ -14,8 +14,8 @@
 
 namespace Horde\Backup;
 
-use Horde_Compress_Tar as Tar;
-use Horde_Compress_Zip as Zip;
+use Horde\Compress\Driver\Tar as Tar;
+use Horde\Compress\Driver\Zip as Zip;
 use Horde_Pack_Driver_Json as Json;
 use Horde\Backup;
 use Horde\Backup\Exception;
@@ -141,12 +141,10 @@ class Writer
             if (!$data) {
                 continue;
             }
-            $archive = fopen($this->_dir . '/' . $name . $extension, 'w');
-            stream_copy_to_stream(
-                $compress->compress($data, ['stream' => true]),
-                $archive
+            file_put_contents(
+                $this->_dir . '/' . $name . $extension,
+                $compress->compressFiles($data)
             );
-            fclose($archive);
         }
 
         return $count;
