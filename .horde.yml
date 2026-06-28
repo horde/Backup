@@ -6,8 +6,7 @@ description: A library that drives the backup and restore features of Horde appl
 list: dev
 type: library
 authors:
-  -
-    name: Jan Schneider
+  - name: Jan Schneider
     user: jan
     email: jan@horde.org
     active: true
@@ -32,3 +31,50 @@ dependencies:
   optional:
     composer:
       horde/test: ^3
+keywords: null
+vendor: horde
+ci-platform:
+  '8.1':
+    - php: '>=7.2'
+    - ext-dom
+    - ext-hash
+    - ext-pcre
+    - ext-simplexml
+    - ext-spl
+  '8.2':
+    - php: '>=7.2'
+    - ext-dom
+    - ext-hash
+    - ext-pcre
+    - ext-simplexml
+    - ext-spl
+  '8.3':
+    - php: '>=7.2'
+    - ext-dom
+    - ext-hash
+    - ext-pcre
+    - ext-simplexml
+    - ext-spl
+  '8.4':
+    - php: '>=7.2'
+    - ext-dom
+    - ext-hash
+    - ext-pcre
+    - ext-simplexml
+    - ext-spl
+  '8.5':
+    - php: '>=7.2'
+    - ext-dom
+    - ext-hash
+    - ext-pcre
+    - ext-simplexml
+    - ext-spl
+  '8.6':
+    - php: '>=7.2'
+    - ext-dom
+    - ext-hash
+    - ext-pcre
+    - ext-simplexml
+    - ext-spl
+ci-platform-flags:
+  needs_installer_plugin: false

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2017-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (BSD). If you
  * did not receive this file, see http://www.horde.org/licenses/bsd.
@@ -22,6 +22,9 @@ use Horde\Backup\Exception;
 use Horde\Backup\Reader\CompressIterator\Tar as TarIterator;
 use Horde\Backup\Reader\CompressIterator\Zip as ZipIterator;
 use Horde\Backup\Translation;
+use FilesystemIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
 /**
  * The backup reader class that reads backups from the backup directory.
@@ -75,10 +78,10 @@ class Reader
      */
     public function listBackups()
     {
-        return new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator(
+        return new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator(
                 $this->_dir,
-                \FilesystemIterator::CURRENT_AS_PATHNAME | \FilesystemIterator::SKIP_DOTS
+                FilesystemIterator::CURRENT_AS_PATHNAME | FilesystemIterator::SKIP_DOTS
             )
         );
     }
@@ -91,7 +94,7 @@ class Reader
      * @param array $applications  A list of applications to restore. Defaults
      *                             to all backups.
      *
-     * @return \Horde\Backup\Collection[]  All restored object collections.
+     * @return Collection[]  All restored object collections.
      */
     public function restore(
         array $applications = [],
@@ -131,7 +134,7 @@ class Reader
      * @param array $applications  A list of applications to restore. Defaults
      *                             to all backups.
      *
-     * @return \Horde\Backup\Collection[]  All restored object collections.
+     * @return Collection[]  All restored object collections.
      */
     protected function _restoreFromZip($file, $applications)
     {
@@ -166,7 +169,7 @@ class Reader
      * @param array $applications  A list of applications to restore. Defaults
      *                             to all backups.
      *
-     * @return \Horde\Backup\Collection[]  All restored object collections.
+     * @return Collection[]  All restored object collections.
      */
     protected function _restoreFromTar($file, $applications)
     {
@@ -197,7 +200,7 @@ class Reader
      * @param callable $factory    A factory for iterators that are passed to
      *                             \Horde\Backup\Collection.
      *
-     * @return \Horde\Backup\Collection[]  All restored object collections.
+     * @return Collection[]  All restored object collections.
      */
     protected function _buildCollections(
         $files,

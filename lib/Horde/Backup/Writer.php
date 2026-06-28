@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2017-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (BSD). If you
  * did not receive this file, see http://www.horde.org/licenses/bsd.
@@ -81,7 +81,7 @@ class Writer
      * Adds backups of user data.
      *
      * @param string $application         Application name.
-     * @param \Horde\Backup\Users $users  User(s) (and their data) to backup.
+     * @param Users $users  User(s) (and their data) to backup.
      */
     public function backup($application, Users $users)
     {

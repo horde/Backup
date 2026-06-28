@@ -21,6 +21,7 @@ use PHPUnit\Framework\TestCase;
  *
  * Also tests the underlying compress operations directly to prove ZIP_LIST
  * returns paths and ZIP_DATA returns raw strings.
+ * @coversNothing
  */
 class BackupCompressTest extends TestCase
 {
