@@ -12,10 +12,10 @@ authors:
     active: true
     role: lead
 version:
-  release: 2.0.0-alpha4
+  release: 2.0.0
   api: 2.0.0alpha1
 state:
-  release: alpha
+  release: stable
   api: alpha
 license:
   identifier: BSD-2-Clause
